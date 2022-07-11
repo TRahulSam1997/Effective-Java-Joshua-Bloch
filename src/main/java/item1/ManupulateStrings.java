@@ -10,7 +10,7 @@ public class ManupulateStrings {
         this.appendThis = appendThis;
     }
 
-    /* A class can provide a public static factory method, which is simply a static   method that returns an instance of the class. */
+    /* A class can provide a public static factory method, which is simply a static method that returns an instance of the class. */
 //    public static String getAppendedString(String passedStr) {
 //        return  getAppendedString()
 //    }
