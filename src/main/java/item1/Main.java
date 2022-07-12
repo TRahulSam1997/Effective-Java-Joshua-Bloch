@@ -10,6 +10,9 @@ public class Main {
         /* Object creation. */
         ManupulateStrings ms = new ManupulateStrings("item 1");
 
-        System.out.println("Appended string is -> " + ms.appending());
+        System.out.println("With public constructor -> " + ms.appending());
+
+        /* No object created. */
+        System.out.println("With static factory method -> " + ManupulateStrings.getAppendedString("item 1"));
     }
 }

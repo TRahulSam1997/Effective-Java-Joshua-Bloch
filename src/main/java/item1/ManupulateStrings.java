@@ -11,9 +11,14 @@ public class ManupulateStrings {
     }
 
     /* A class can provide a public static factory method, which is simply a static method that returns an instance of the class. */
-//    public static String getAppendedString(String passedStr) {
-//        return  getAppendedString()
-//    }
+    public static String getAppendedString(String passedStr) {
+        return  passedStr + " Appended random String is " + RandomStringUtils.randomAlphanumeric(10);
+    }
+
+    /* Example from the book. */
+    public static Boolean valueOf(boolean b) {
+        return b ? Boolean.TRUE : Boolean.FALSE;
+    }
 
     String appending() {
         String generatedString = RandomStringUtils.randomAlphanumeric(10);
