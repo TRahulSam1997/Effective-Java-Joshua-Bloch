@@ -2,6 +2,8 @@ package item1;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.math.BigInteger;
+
 public class ManupulateStrings {
     String appendThis;
 
@@ -15,7 +17,7 @@ public class ManupulateStrings {
         return  passedStr + " Appended random String is " + RandomStringUtils.randomAlphanumeric(10);
     }
 
-    /* Example from the book. */
+    /* Example #1 from the book. */
     public static Boolean valueOf(boolean b) {
         return b ? Boolean.TRUE : Boolean.FALSE;
     }
