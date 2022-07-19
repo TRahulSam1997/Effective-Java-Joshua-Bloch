@@ -17,7 +17,9 @@ public class ManupulateStrings {
         return  passedStr + " Appended random String is " + RandomStringUtils.randomAlphanumeric(10);
     }
 
-    /* Example #1 from the book. */
+    /* Example #1 from the book.
+     * Translates a boolean primitive value into a Boolean object reference
+     */
     public static Boolean valueOf(boolean b) {
         return b ? Boolean.TRUE : Boolean.FALSE;
     }
