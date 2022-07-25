@@ -6,12 +6,17 @@ package item1;
 */
 
 import java.math.BigInteger;
+import java.util.EnumSet;
 import java.util.Random;
+
+enum Color {
+    RED, YELLOW, GREEN, BLUE, BLACK, WHITE
+}
 
 public class Main {
     public static void main(String[] args) {
         /* Object creation. */
-//        ManupulateStrings ms = new ManupulateStrings("item 1");
+        ManupulateStrings ms = new ManupulateStrings("item 1");
 //        System.out.println("With public constructor -> " + ms.appending());
 
         /* No object created. */
@@ -22,6 +27,11 @@ public class Main {
 //        System.out.println("ProbablePrime from BigInteger -> " + BigInteger.probablePrime(3, rnd));
 
         /* Example #1 doesn't create an object. */
-        System.out.println("valueOf from ManipulateStrings -> " + ManupulateStrings.valueOf(false));
+//        System.out.println("valueOf from ManipulateStrings -> " + ManupulateStrings.valueOf(false));
+
+        /* Example for advantage 4 courtesy of Baeldung. */
+        EnumSet enumSet = EnumSet.noneOf(Color.class);
+//        System.out.println("Class name -> " + enumSet.getClass());
+
     }
 }
