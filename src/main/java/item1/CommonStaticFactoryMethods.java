@@ -1,7 +1,6 @@
 package item1;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
@@ -10,9 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.Set;
+import java.util.*;
 
 //class Rank{ }
 enum Rank {
@@ -21,11 +18,17 @@ enum Rank {
     KING
 }
 
-public class CommonStaticFactoryMethods {
-    private static final Rank JACK = null;
-    private static final Rank QUEEN = null;
-    private static final Rank KING = null;
+enum Complaint {
+    A,
+    B,
+    C
+}
 
+//class Complaint {
+//
+//}
+
+public class CommonStaticFactoryMethods {
     public static void main(String[] args) throws IOException {
         /* A type-conversion method. */
         Instant inst = Instant.now();
@@ -62,7 +65,16 @@ public class CommonStaticFactoryMethods {
          */
         BufferedReader bufferedReader = Files.newBufferedReader(path);
 
-        /* */
+        /* Collections.list is an example for a concise alternative of getType() and newType().  */
+        Vector<Complaint> v = new Vector<Complaint>();
+
+        v.add(Complaint.A);
+        v.add(Complaint.B);
+        v.add(Complaint.C);
+
+        Enumeration<Complaint> legacyLitany = v.elements();
+        List<Complaint> litany = Collections.list(legacyLitany);
+//        System.out.println("litany -> " + litany);
     }
 }
 
