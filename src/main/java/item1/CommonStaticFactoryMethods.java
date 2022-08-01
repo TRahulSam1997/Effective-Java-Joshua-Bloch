@@ -1,5 +1,7 @@
 package item1;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
@@ -32,7 +34,7 @@ public class CommonStaticFactoryMethods {
 
         /* An aggregation method. */
         Set<Rank> faceCards = EnumSet.of(Rank.JACK, Rank.QUEEN, Rank.KING);
-        System.out.println("faceCards -> " + faceCards);
+//        System.out.println("faceCards -> " + faceCards);
 
         /* A verbose alternative to from and of. */
         BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);
@@ -49,12 +51,18 @@ public class CommonStaticFactoryMethods {
 
         /*
          * getFileStore is an example of a getType() as it returns a reference type of FileStore
-         * which is in a different class to Files().
+         * which is a different type to Files().
          */
         Path path = Paths.get("/Users/Rahul/PersonalProjects/Effective-Java-Joshua-Bloch/src/main/java/item1/fileStore");
         FileStore fs = Files.getFileStore(path);
 
-        /*  */
+        /*
+         * newBufferedReader() is an example of a newType() as it returns a new instance type of BufferedReader
+         * which is a different type to Files().
+         */
+        BufferedReader bufferedReader = Files.newBufferedReader(path);
+
+        /* */
     }
 }
 
