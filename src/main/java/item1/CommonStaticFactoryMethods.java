@@ -45,7 +45,7 @@ public class CommonStaticFactoryMethods {
 
         /* A quasi-demo for getInstance(). */
         StackWalkerDemo stackWalkerDemo = new StackWalkerDemo();
-//        stackWalkerDemo.methodThree();
+        stackWalkerDemo.methodThree();
 
         /* Each call returns a new instance. */
         int arrayLen = 3;
@@ -57,7 +57,7 @@ public class CommonStaticFactoryMethods {
          * which is a different type to Files().
          */
         Path path = Paths.get("/Users/Rahul/PersonalProjects/Effective-Java-Joshua-Bloch/src/main/java/item1/fileStore");
-        FileStore fs = Files.getFileStore(path);
+//        FileStore fs = Files.getFileStore(path);
 
         /*
          * newBufferedReader() is an example of a newType() as it returns a new instance type of BufferedReader
@@ -74,7 +74,7 @@ public class CommonStaticFactoryMethods {
 
         Enumeration<Complaint> legacyLitany = v.elements();
         List<Complaint> litany = Collections.list(legacyLitany);
-//        System.out.println("litany -> " + litany);
+        System.out.println("litany -> " + litany);
     }
 }
 
@@ -99,6 +99,6 @@ class StackWalkerDemo {
         Class<?> callerClass = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE)
                 .getCallerClass();
 
-        System.out.println("callerClass -> " + callerClass);
+//        System.out.println("callerClass -> " + callerClass);
     }
 }

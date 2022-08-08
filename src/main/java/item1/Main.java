@@ -15,6 +15,8 @@ enum Color {
 
 public class Main {
     public static void main(String[] args) {
+//        System.out.println("value Of -> " + ManupulateStrings.valueOf(true));
+
         /* Object creation. */
         ManupulateStrings ms = new ManupulateStrings("item 1");
 //        System.out.println("With public constructor -> " + ms.appending());
@@ -31,7 +33,7 @@ public class Main {
 
         /* Example for advantage 4 courtesy of Baeldung. */
         EnumSet enumSet = EnumSet.noneOf(Color.class);
-//        System.out.println("Class name -> " + enumSet.getClass());
+        System.out.println("Class name -> " + enumSet.getClass());
 
     }
 }
