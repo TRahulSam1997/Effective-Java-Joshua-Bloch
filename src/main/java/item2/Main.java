@@ -7,5 +7,5 @@ public class Main {
     NutritionFacts coke = new NutritionFacts(240, 8, 100, 0, 35, 27);
     NutritionFacts bundaberg = new NutritionFacts(360, 2, 150);
 
-    
+
 }
