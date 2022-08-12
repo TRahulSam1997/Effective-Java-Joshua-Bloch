@@ -11,7 +11,7 @@ public class NutritionFacts {
     private final int fat;
     private final int sodium;
     private final int carbohydrate;
-    
+
     public static class Builder {
         // Required parameters
         private final int servingSize;
@@ -29,8 +29,15 @@ public class NutritionFacts {
         }
 
         /* Setter-like methods build the object as required. */
-        public Builder calories(int val)
-        { calories = val;      return this; }
+        public Builder calories(int val) {
+            /* Throws IllegalArgumentException for invalid parameters. */
+            if (val < 0) {
+                throw new IllegalArgumentException(Integer.toString(val) + " is negative!");
+            }
+
+            calories = val;
+            return this;
+        }
         public Builder fat(int val)
         { fat = val;           return this; }
         public Builder sodium(int val)
@@ -62,6 +69,10 @@ public class NutritionFacts {
                 .calories(100)
                 .sodium(35)
                 .carbohydrate(27)
+                .build();
+
+        NutritionFacts bundaberg = new Builder(10, 4)
+                .calories(20)
                 .build();
     }
 }
