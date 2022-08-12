@@ -23,6 +23,7 @@ public abstract class Pizza {
         protected abstract T self();
     }
 
+    /* Pizza.Builder is a generic type with a recursive type parameter. */
     Pizza(Builder<?> builder) {
         toppings = builder.toppings.clone(); // See Item 50
     }
