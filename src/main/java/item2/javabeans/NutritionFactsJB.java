@@ -1,7 +1,7 @@
 package item2.javabeans;
 
 /*
- * https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/javabeans/NutritionFacts.java
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/javabeans/NutritionFacts.java
  * JavaBeans Pattern - allows inconsistency, mandates mutability  (pages 11-12)
  */
 public class NutritionFactsJB {

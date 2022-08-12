@@ -1,7 +1,7 @@
 package item2.builder;
 /*
- * https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/builder/NutritionFacts.java
- * Builder Pattern
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/builder/NutritionFacts.java
+ * Builder Pattern combines the safety of telescoping constructor pattern with the readability of the JavaBeans pattern.
  */
 /* Immutable class as the builders setter methods return the builder itself. */
 public class NutritionFacts {
