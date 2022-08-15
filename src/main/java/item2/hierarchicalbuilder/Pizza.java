@@ -25,7 +25,7 @@ public abstract class Pizza {
 
     Pizza(Builder<?> builder) {
         /* Defensive copy been made to ensure encapsulation isn't broken.
-         * When the native class changes a mutable object's field, a defensive copy should be made.
+         * When the native class changes a mutable object's field, a defensive copy should be made any time it's passed into a constructor like this or out of the class.
          */
         toppings = builder.toppings.clone(); // See Item 50
     }
