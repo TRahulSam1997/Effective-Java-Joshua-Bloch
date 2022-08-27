@@ -10,6 +10,7 @@ public class NyPizza extends Pizza {
     public enum Size { SMALL, MEDIUM, LARGE }
     private final Size size;
 
+    /* The proper subtype of this class is passed as the generic parameter. */
     public static class Builder extends Pizza.Builder<Builder> {
         private final Size size;
 
@@ -17,10 +18,12 @@ public class NyPizza extends Pizza {
             this.size = Objects.requireNonNull(size);
         }
 
+        /* Build method returns the correct subclass. */
         @Override public NyPizza build() {
             return new NyPizza(this);
         }
 
+        /* Returns an instance of the subclass, not Pizza. */
         @Override protected Builder self() { return this; }
     }
 
