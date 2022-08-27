@@ -9,11 +9,16 @@ import static item2.hierarchicalbuilder.Pizza.Topping.*;
 public class PizzaTest {
     public static void main(String[] args) {
         NyPizza pizza = new NyPizza.Builder(SMALL)
-                .addTopping(SAUSAGE).addTopping(ONION).build();
-        Calzone calzone = new Calzone.Builder()
-                .addTopping(HAM).sauceInside().build();
+                .addTopping(SAUSAGE)
+                .addTopping(ONION)
+                .build();
 
-        System.out.println(pizza);
-        System.out.println(calzone);
+        Calzone calzone = new Calzone.Builder()
+                .addTopping(HAM)
+                .sauceInside()
+                .build();
+
+        System.out.println(pizza.getClass().getSuperclass() + " -> " + pizza.getClass() + " -> " + pizza);
+        System.out.println(calzone.getClass().getSuperclass() + " -> " + calzone.getClass() + " -> " + calzone);
     }
 }
