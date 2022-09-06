@@ -5,6 +5,8 @@ package Item3.staticfactory;
  */
 public class Elvis {
     private static final Elvis INSTANCE = new Elvis();
+
+    /* Private constructor gives the class instance control. */
     private Elvis() { }
     public static Elvis getInstance() { return INSTANCE; }
 
@@ -12,9 +14,11 @@ public class Elvis {
         System.out.println("Whoa baby, I'm outta here!");
     }
 
-    // This code would normally appear outside the class!
+}
+
+class TestElvis {
     public static void main(String[] args) {
-        Elvis elvis = Elvis.getInstance();
-        elvis.leaveTheBuilding();
+        Elvis.getInstance().leaveTheBuilding();
+
     }
 }
