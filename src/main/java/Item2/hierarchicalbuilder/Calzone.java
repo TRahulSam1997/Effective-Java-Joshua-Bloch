@@ -1,4 +1,4 @@
-package item2.hierarchicalbuilder;
+package Item2.hierarchicalbuilder;
 
 /*
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/hierarchicalbuilder/Calzone.java

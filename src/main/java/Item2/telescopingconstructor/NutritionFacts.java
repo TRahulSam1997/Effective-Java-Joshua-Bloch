@@ -1,4 +1,4 @@
-package item2.telescopingconstructor;
+package Item2.telescopingconstructor;
 
 /*
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/telescopingconstructor/NutritionFacts.java

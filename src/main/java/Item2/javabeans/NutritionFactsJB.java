@@ -1,4 +1,4 @@
-package item2.javabeans;
+package Item2.javabeans;
 
 /*
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/javabeans/NutritionFacts.java

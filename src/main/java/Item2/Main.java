@@ -1,7 +1,6 @@
-package item2;
+package Item2;
 
-import item2.telescopingconstructor.NutritionFacts;
-import item2.javabeans.NutritionFactsJB;
+import Item2.telescopingconstructor.NutritionFacts;
 
 public class Main {
     /* Instantiating with the Telescope constructor pattern. */

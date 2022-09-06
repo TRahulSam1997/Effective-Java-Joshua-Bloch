@@ -1,9 +1,4 @@
-package item1.SubClassing;
-
-import com.mysql.cj.xdevapi.Collection;
-
-import java.util.ArrayList;
-import java.util.Collections;
+package Item1.SubClassing;
 
 public class Main  {
 //    AnimalWithConstructor animalWithConstructor = new AnimalWithConstructor();

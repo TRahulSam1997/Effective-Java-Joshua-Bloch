@@ -1,4 +1,4 @@
-package item1.ImmutableValueClass;
+package Item1.ImmutableValueClass;
 
 public class Main {
     public static void main(String[] args) {

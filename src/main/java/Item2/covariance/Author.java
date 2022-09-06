@@ -1,4 +1,4 @@
-package item2.covariance;
+package Item2.covariance;
 
 public class Author {
     private Object name;

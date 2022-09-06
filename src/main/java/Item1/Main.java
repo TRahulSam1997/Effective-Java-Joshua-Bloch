@@ -1,11 +1,10 @@
-package item1;
+package Item1;
 
 /*
 * CHAPTER 2: Creating and Destroying Objects
 * ITEM 1: Consider static factory methods instead of constructors
 */
 
-import java.math.BigInteger;
 import java.util.EnumSet;
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package item1.ServiceProviderFramework;
+package Item1.ServiceProviderFramework;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

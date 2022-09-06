@@ -1,7 +1,7 @@
-package item2.hierarchicalbuilder;
+package Item2.hierarchicalbuilder;
 
-import static item2.hierarchicalbuilder.NyPizza.Size.SMALL;
-import static item2.hierarchicalbuilder.Pizza.Topping.*;
+import static Item2.hierarchicalbuilder.NyPizza.Size.SMALL;
+import static Item2.hierarchicalbuilder.Pizza.Topping.*;
 
 /* Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item2/hierarchicalbuilder/PizzaTest.java
  * Using the hierarchical builder (Page 16)

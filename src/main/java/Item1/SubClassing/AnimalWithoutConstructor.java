@@ -1,6 +1,4 @@
-package item1.SubClassing;
-
-import java.util.ArrayList;
+package Item1.SubClassing;
 
 public class AnimalWithoutConstructor {
     private AnimalWithoutConstructor() {}

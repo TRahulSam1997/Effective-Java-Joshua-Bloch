@@ -1,8 +1,6 @@
-package item1;
+package Item1;
 
 import org.apache.commons.lang3.RandomStringUtils;
-
-import java.math.BigInteger;
 
 public class ManupulateStrings {
     String appendThis;
