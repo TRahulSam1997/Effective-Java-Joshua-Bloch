@@ -4,17 +4,21 @@ package Item3.field;
  * Singleton with public final field  (Page 17)
  */
 public class Elvis {
+    /* The only time the private constructor is called. */
     public static final Elvis INSTANCE = new Elvis();
 
+    /* Private constructor gives the class instance control. */
     private Elvis() { }
 
     public void leaveTheBuilding() {
         System.out.println("Whoa baby, I'm outta here!");
     }
 
-    // This code would normally appear outside the class!
+}
+
+class TestElvis {
     public static void main(String[] args) {
-        Elvis elvis = Elvis.INSTANCE;
-        elvis.leaveTheBuilding();
+        /* Inline variable. */
+        Elvis.INSTANCE.leaveTheBuilding();
     }
 }
