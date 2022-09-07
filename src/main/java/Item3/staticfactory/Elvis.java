@@ -1,7 +1,5 @@
 package Item3.staticfactory;
 
-import java.beans.Transient;
-
 /*
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item3/staticfactory/Elvis.java
  * Singleton with static factory (Page 17)
