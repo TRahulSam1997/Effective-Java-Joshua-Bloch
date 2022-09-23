@@ -11,4 +11,9 @@ public class UtilityClass {
         throw new AssertionError();
     }
 
+    public static void main(String[] args) {
+        /* This will throw an error. */
+        UtilityClass utilityClass = new UtilityClass();
+    }
+
 }
