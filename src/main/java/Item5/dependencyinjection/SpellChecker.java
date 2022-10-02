@@ -11,6 +11,9 @@ public class SpellChecker {
     private final Lexicon dictionary;
 
     public SpellChecker(Lexicon dictionary) {
+        /* Checks if the supplied object reference (dictionary, in this case) is null.
+         * If it's null, then a NullPointerException is thrown.
+         */
         this.dictionary = Objects.requireNonNull(dictionary);
     }
 
