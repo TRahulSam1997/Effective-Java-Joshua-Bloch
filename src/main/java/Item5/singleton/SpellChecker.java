@@ -7,6 +7,7 @@ import java.util.List;
 
 /* Inappropriate use of singleton - inflexible & untestable! */
 public class SpellChecker {
+    /* Immutable object created. */
     private static final Lexicon dictionary = new Lexicon();
 
     private SpellChecker() {}

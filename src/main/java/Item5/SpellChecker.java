@@ -5,6 +5,7 @@ import java.util.List;
 
 /* Inappropriate use of static utility - inflexible & untestable! */
 public class SpellChecker {
+    /* Immutable object created. */
     private static final Lexicon dictionary = new Lexicon();
 
     /* Noninstantiable */
