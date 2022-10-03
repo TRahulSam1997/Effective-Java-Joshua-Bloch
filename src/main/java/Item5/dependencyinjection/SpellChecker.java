@@ -10,7 +10,7 @@ import java.util.Objects;
 public class SpellChecker {
     private final Lexicon dictionary;
 
-    /* Dependent object is passed here. */
+    /* Dependent object (reference) is passed here. */
     public SpellChecker(Lexicon dictionary) {
         /* Checks if the supplied object reference (dictionary, in this case) is null.
          * If it's null, then a NullPointerException is thrown.
