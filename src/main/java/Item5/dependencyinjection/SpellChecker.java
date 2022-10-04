@@ -27,4 +27,9 @@ public class SpellChecker {
     public static List<String> suggestions(String typo) {
         return new ArrayList<>();
     }
+
+    public static void main(String[] args) {
+
+        SpellChecker spellChecker = new SpellChecker(new Lexicon());
+    }
 }
