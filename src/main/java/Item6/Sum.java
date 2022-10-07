@@ -1,7 +1,10 @@
 package Item6;
 import java.util.Comparator;
 
-// Hideously slow program! Can you spot the object creation? (Page 24)
+/*
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item6/Sum.java
+ * Hideously slow program! Can you spot the object creation? (Page 24)
+ */
 public class Sum {
     private static long sum() {
         Long sum = 0L;

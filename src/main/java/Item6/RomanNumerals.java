@@ -1,7 +1,10 @@
 package Item6;
 import java.util.regex.Pattern;
 
-// Reusing expensive object for improved performance (Pages 22 and 23)
+/*
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item6/RomanNumerals.java
+ * Reusing expensive object for improved performance (Pages 22 and 23)
+ */
 public class RomanNumerals {
     // Performance can be greatly improved! (Page 22)
     static boolean isRomanNumeralSlow(String s) {
