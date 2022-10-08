@@ -7,17 +7,19 @@ import java.util.regex.Pattern;
  */
 public class RomanNumerals {
     // Performance can be greatly improved! (Page 22)
-    /* A Pattern instance is internally created and is expensive. */
+    /* A Pattern instance is internally created and garbage collected, which is expensive. */
     static boolean isRomanNumeralSlow(String s) {
         return s.matches("^(?=.)M*(C[MD]|D?C{0,3})"
                 + "(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
     }
 
     // Reusing expensive object for improved performance (Page 23)
+    /* Regular expression is explicitly compiled into an immutable pattern instance. */
     private static final Pattern ROMAN = Pattern.compile(
             "^(?=.)M*(C[MD]|D?C{0,3})"
                     + "(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
 
+    /* ROMAN object is reused here. */
     static boolean isRomanNumeralFast(String s) {
         return ROMAN.matcher(s).matches();
     }
