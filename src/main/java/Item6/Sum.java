@@ -7,7 +7,10 @@ import java.util.Comparator;
  */
 public class Sum {
     private static long sum() {
-        Long sum = 0L;
+        /* Object creation */
+        long sum = 0L;
+
+        /* 2^31 unnecessary Long instances created due to this loop. */
         for (long i = 0; i <= Integer.MAX_VALUE; i++)
             sum += i;
         return sum;
