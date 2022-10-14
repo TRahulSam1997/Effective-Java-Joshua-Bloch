@@ -15,6 +15,9 @@ public class FooCalendar {
 
     public Date getStandardDate() {
         return standardDate;
+
+        /* A copy of standardDate is returned. */
+//        return new Date(standardDate.getTime());
     }
 
     public static void main(String[] args) {
@@ -26,5 +29,9 @@ public class FooCalendar {
         Date originalDate = new Date();
         FooCalendar fooCalendar = new FooCalendar(originalDate);
         originalDate.setYear(150);
+
+        /* To maintain the immutability of a class if it has mutable fields use defensive copying. */
+        fooCalendar.getStandardDate();
+
     }
 }
