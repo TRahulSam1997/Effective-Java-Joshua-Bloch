@@ -29,7 +29,7 @@ public class WeakHashMapDemo {
 
         /** We are putting a BigImage object as a value and an imageName object reference as a key. */
         wMap.put(imageName, bigImage);
-        System.out.println("Does Map contains imageName -> " + wMap.containsKey(imageName));
+        System.out.println("Map does not contain imageName -> " + wMap.containsKey(imageName));
 
         wMap.put(imageName, bigImage);
 
