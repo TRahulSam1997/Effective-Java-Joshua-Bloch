@@ -23,15 +23,12 @@ public class WeakHashMapDemo {
          * that entry will be deleted from memory.
          */
         WeakHashMap<UniqueImageName, BigImage> wMap = new WeakHashMap<>();
-        HashMap<UniqueImageName, BigImage> map = new HashMap<>();
         BigImage bigImage = new BigImage("image_id");
         UniqueImageName imageName = new UniqueImageName("name_of_big_image");
 
         /** We are putting a BigImage object as a value and an imageName object reference as a key. */
         wMap.put(imageName, bigImage);
-        System.out.println("Map does not contain imageName -> " + wMap.containsKey(imageName));
-
-        wMap.put(imageName, bigImage);
+        System.out.println("Map does contain imageName -> " + wMap.containsKey(imageName));
 
         /** The key is set to null. */
         imageName = null;
