@@ -1,12 +1,10 @@
 package Item8;
+import java.lang.ref.Cleaner;
 
 /**
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item8/Room.java
+ * An autocloseable class using a cleaner as a safety net (Page 32)
  */
-
-import java.lang.ref.Cleaner;
-
-// An autocloseable class using a cleaner as a safety net (Page 32)
 public class Room implements AutoCloseable {
     private static final Cleaner cleaner = Cleaner.create();
 
