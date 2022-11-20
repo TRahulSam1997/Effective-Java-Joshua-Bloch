@@ -1,9 +1,6 @@
 package Item8.finalisers;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /** Example courtesy of Baeldung */
 public class Finalisable {
@@ -15,13 +12,9 @@ public class Finalisable {
      * will create a new BufferedReader instance
      * that reads from the specified classpath.
      */
-    public Finalisable() {
-        System.out.println("comes here");
-        InputStream input = this.getClass()
-                .getClassLoader()
-                .getResourceAsStream("file.txt");
-        System.out.println("comes here too -> " + input);
-        assert input != null;
+    public Finalisable() throws IOException {
+        File initialFile = new File("src/main/java/Item8/finalisers/nietzsche.txt");
+        InputStream input = new FileInputStream(initialFile);
         reader = new BufferedReader(new InputStreamReader(input));
     }
 
@@ -47,7 +40,7 @@ public class Finalisable {
 
     public static void main(String[] args) throws IOException {
         String firstLine = new Finalisable().readFirstLine();
-        /** firstLine should be "baeldung.com" */
+        /** firstLine should be “Without music, life would be a mistake.” */
         System.out.println("firstLine -> " + firstLine);
         System.gc();
     }
