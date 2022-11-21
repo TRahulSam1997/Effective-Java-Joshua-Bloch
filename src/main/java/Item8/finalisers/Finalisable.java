@@ -2,7 +2,9 @@ package Item8.finalisers;
 
 import java.io.*;
 
-/** Example courtesy of Baeldung */
+/** Example courtesy of Baeldung
+ * Refer to unit test to see implementation.
+ */
 public class Finalisable {
     /** Reads text from an input stream. */
     private BufferedReader reader;
@@ -31,17 +33,13 @@ public class Finalisable {
     @Override
     public void finalize() {
         try {
+            /** buffered reader being closed implies the finalize method was called,
+             * and it has cleaned up the resource.
+             */
             reader.close();
             System.out.println("Closed BufferedReader in the finaliser... ");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        String firstLine = new Finalisable().readFirstLine();
-        /** firstLine should be “Without music, life would be a mistake.” */
-        System.out.println("firstLine -> " + firstLine);
-        System.gc();
     }
 }
