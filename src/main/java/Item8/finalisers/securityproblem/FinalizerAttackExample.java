@@ -15,11 +15,18 @@ public class FinalizerAttackExample {
         public void criticalAction() {
             System.out.println("ResourceClass.criticalAction()");
         }
+
+        /** A final finalize() method helps protect from finalizer attacks. */
+//        final protected void finalize() {
+//            System.out.println("See, I got hands on -> " + this);
+//            /** This method is from the superclass */
+//            criticalAction();
+//        }
     }
 
     static class MaliciousSubclass extends ResourceClass {
         /** There is no need to store something in a static variable.
-         * As soon as the finalize() method is invoked, the object is resurrected.
+         * The moment finalize() method is invoked, the object is resurrected.
          * Invoking a method on an object implies invoking code with access to the object.
          */
         @Override
