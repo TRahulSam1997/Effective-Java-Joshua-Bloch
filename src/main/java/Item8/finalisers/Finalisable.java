@@ -3,7 +3,7 @@ package Item8.finalisers;
 import java.io.*;
 
 /** Example courtesy of Baeldung
- * Refer to unit test to see implementation.
+ * Refer to unit test to see the client implementation.
  */
 public class Finalisable {
     /** Reads text from an input stream. */

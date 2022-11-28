@@ -3,7 +3,7 @@ package Item8.finalisers.autocloseable;
 import java.io.*;
 
 /** Example courtesy of Baeldung
- * Refer to unit test to see implementation.
+ * Refer to unit test to see the client implementation.
  */
 public class DemoClass implements AutoCloseable {
     /** Reads text from an input stream. */
