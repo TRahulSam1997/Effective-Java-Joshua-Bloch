@@ -38,7 +38,7 @@ public class DemoClass implements AutoCloseable {
             closed = true;
             System.out.println("Closed BufferedReader in the close method and flag changed to " + closed);
         } catch (IOException e) {
-            System.out.println("Didn't close flag is still " + closed);
+            System.out.println("Didn't close, and the flag is still " + closed);
             throw e;
         }
     }
