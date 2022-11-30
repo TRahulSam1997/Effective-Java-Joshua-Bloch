@@ -20,7 +20,7 @@ public class Room implements AutoCloseable {
             this.numJunkPiles = numJunkPiles;
         }
 
-        /** Invoked by close method or cleaner.
+        /** Invoked by Room.close() method or cleaner.
          * If the client fails close the Room instance cleaner will
          * (hopefully) call this run method.
          */
@@ -37,6 +37,7 @@ public class Room implements AutoCloseable {
     private final Cleaner.Cleanable cleanable;
 
     public Room(int numJunkPiles) {
+        /** Registering State on constructor */
         state = new State(numJunkPiles);
         cleanable = cleaner.register(this, state);
     }
