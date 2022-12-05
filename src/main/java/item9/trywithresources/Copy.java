@@ -2,6 +2,9 @@ package item9.trywithresources;
 
 import java.io.*;
 
+/**
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item9/trywithresources/Copy.java
+ */
 public class Copy {
     private static final int BUFFER_SIZE = 8 * 1024;
 

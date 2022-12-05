@@ -2,6 +2,9 @@ package item9.tryfinally;
 
 import java.io.*;
 
+/**
+ * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item9/tryfinally/Copy.java
+ */
 public class Copy {
     private static final int BUFFER_SIZE = 8 * 1024;
 
