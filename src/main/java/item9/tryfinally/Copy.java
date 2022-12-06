@@ -8,7 +8,7 @@ import java.io.*;
 public class Copy {
     private static final int BUFFER_SIZE = 8 * 1024;
 
-    // try-finally is ugly when used with more than one resource! (Page 34)
+    /** try-finally is ugly when used with more than one resource! (Page 34) */
     static void copy(String src, String dst) throws IOException {
         InputStream in = new FileInputStream(src);
         try {
@@ -27,8 +27,8 @@ public class Copy {
     }
 
     public static void main(String[] args) throws IOException {
-        String src = args[0];
-        String dst = args[1];
+        String src = "src/main/java/Item8/finalisers/nietzsche.txt";
+        String dst = "src/main/java/item9/tryfinally/nietzscheOut.txt";
         copy(src, dst);
     }
 }
