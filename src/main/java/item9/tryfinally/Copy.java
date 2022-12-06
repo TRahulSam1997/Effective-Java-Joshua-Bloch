@@ -8,7 +8,9 @@ import java.io.*;
 public class Copy {
     private static final int BUFFER_SIZE = 8 * 1024;
 
-    /** try-finally is ugly when used with more than one resource! (Page 34) */
+    /** try-finally is ugly when used with more than one resource! (Page 34)
+      * try-finally blocks all the way down.
+      */
     static void copy(String src, String dst) throws IOException {
         InputStream in = new FileInputStream(src);
         try {

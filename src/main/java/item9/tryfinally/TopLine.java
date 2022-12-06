@@ -15,6 +15,7 @@ public class TopLine {
         try {
             return br.readLine();
         } finally {
+            /** If return br.readLine(); fails there won't be a record in the stack trace because of this finally block. */
             br.close();
         }
     }
