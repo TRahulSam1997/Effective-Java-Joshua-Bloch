@@ -8,7 +8,7 @@ import java.io.IOException;
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter2/item9/trywithresources/TopLineWithDefault.java
  */
 public class TopLineWithDefault {
-    // try-with-resources with a catch clause  (Page 36)
+    /** try-with-resources with a catch clause  (Page 36) */
     static String firstLineOfFile(String path, String defaultVal) {
         try (BufferedReader br = new BufferedReader(
                 new FileReader(path))) {
