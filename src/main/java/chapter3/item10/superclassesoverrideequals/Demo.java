@@ -5,24 +5,21 @@ import java.util.Set;
 
 public class Demo {
     public static void main(String[] args) {
-        Set<String> hash_Set = new HashSet<>();
-        Set<String> hash_Set_2 = new HashSet<>();
+        Set<String> hashSet = new HashSet<>();
+        Set<String> hashSet2 = new HashSet<>();
+        Set<String> hashSet3 = new HashSet<>();
 
-        // Adding elements to the Set
-        // using add() method
-        hash_Set.add("Geeks");
-        hash_Set.add("For");
-        hash_Set.add("Geeks");
-        hash_Set.add("Example");
-        hash_Set.add("Set");
+        hashSet.add("Effective");
+        hashSet.add("Java");
 
-        hash_Set_2.add("Geeks");
-        hash_Set_2.add("For");
-        hash_Set_2.add("Geeks");
-        hash_Set_2.add("Example");
-        hash_Set_2.add("Set");
+        hashSet2.add("Effective");
+        hashSet2.add("Java");
 
-        // Printing elements of HashSet object
-        System.out.println(hash_Set.equals(hash_Set_2));
+        hashSet3.add("Effective");
+        hashSet3.add("TypeScript");
+
+        /** Checking for equality. */
+        System.out.println("hashSet to hashSet2 comparison -> " + hashSet.equals(hashSet2));
+        System.out.println("hashSet to hashSet3 comparison -> " + hashSet.equals(hashSet3));
     }
 }
