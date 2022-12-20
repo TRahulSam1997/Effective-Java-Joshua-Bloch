@@ -23,7 +23,7 @@ public final class CaseInsensitiveString {
         /** Returns true if object is an instance of CaseInsensitiveString
          * and is equals to string s (declared above) but ignores the case of the characters. */
         if (o instanceof CaseInsensitiveString)
-            /** After casting the field s is accessed from CaseInsensitiveString type */
+            /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
             return s.equalsIgnoreCase(((CaseInsensitiveString) o).s);
 
         /** One-way interoperability! */
@@ -58,7 +58,7 @@ public final class CaseInsensitiveString {
     /** Fixed equals method (Page 40) */
 //    @Override public boolean equals(Object o) {
 //    /** */
-    /** After casting the field s is accessed from CaseInsensitiveString type */
+    /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
 //        return o instanceof CaseInsensitiveString &&
 //                ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
 //    }
