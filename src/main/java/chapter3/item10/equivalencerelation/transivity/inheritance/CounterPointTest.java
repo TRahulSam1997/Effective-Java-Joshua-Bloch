@@ -23,10 +23,10 @@ public class CounterPointTest {
         Point p1 = new Point(1,  0);
         Point p2 = new CounterPoint(1,  0);
 
-        // Prints true
+        /** Prints true */
         System.out.println(onUnitCircle(p1));
 
-        // Should print true, but doesn't if Point uses getClass-based equals
+        /** Should print true, but doesn't if Point uses getClass-based equals */
         System.out.println(onUnitCircle(p2));
     }
 }
