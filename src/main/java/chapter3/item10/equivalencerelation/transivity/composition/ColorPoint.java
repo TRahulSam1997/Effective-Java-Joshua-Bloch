@@ -2,7 +2,6 @@ package chapter3.item10.equivalencerelation.transivity.composition;
 
 import chapter3.item10.equivalencerelation.transivity.Color;
 import chapter3.item10.equivalencerelation.transivity.Point;
-import chapter3.item10.equivalencerelation.transivity.inheritance.CounterPoint;
 
 import java.util.Objects;
 import java.util.Set;
@@ -44,7 +43,7 @@ public class ColorPoint {
     }
 }
 
-class CounterPointTest {
+class ColourPointTest {
     private static final Set<Point> unitCircle = Set.of(
             new Point( 1,  0), new Point( 0,  1),
             new Point(-1,  0), new Point( 0, -1)
@@ -57,12 +56,10 @@ class CounterPointTest {
     public static void main(String[] args) {
 
         Point p1 = new Point(1,  0);
-        Point p2 = new CounterPoint(1,  0);
+        Point p2 = new ColorPoint(1,  0, Color.BLUE).asPoint();
 
         /** Prints true */
         System.out.println(onUnitCircle(p1));
-
-        /** Should print true, but doesn't if Point uses getClass-based equals */
         System.out.println(onUnitCircle(p2));
     }
 }

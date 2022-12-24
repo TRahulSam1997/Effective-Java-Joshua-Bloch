@@ -36,7 +36,7 @@ class Rectangle extends Shape {
     public static void main(String[] args) {
         Shape Rectangle = new Rectangle(0, 0, 5, 5);
 
-        /** Impossible tp instantiate abstract class Shape */
+        /** Impossible to instantiate abstract class Shape */
 //        Shape shape = new Shape(0, 0);
     }
 }

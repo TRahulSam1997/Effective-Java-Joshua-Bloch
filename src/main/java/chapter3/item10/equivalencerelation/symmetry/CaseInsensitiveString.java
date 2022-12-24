@@ -19,22 +19,22 @@ public final class CaseInsensitiveString {
     }
 
     /** Broken - Overridden equals() method violates symmetry! */
-    @Override public boolean equals(Object o) {
-        /** Returns true if object is an instance of CaseInsensitiveString
-         * and is equals to string s (declared above) but ignores the case of the characters. */
-        if (o instanceof CaseInsensitiveString)
-            /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
-            return s.equalsIgnoreCase(((CaseInsensitiveString) o).s);
-
-        /** One-way interoperability! */
-        if (o instanceof String)
-            return s.equalsIgnoreCase((String) o);
-        return false;
-    }
+//    @Override public boolean equals(Object o) {
+//        /** Returns true if object is an instance of CaseInsensitiveString
+//         * and is equals to string s (declared above) but ignores the case of the characters. */
+//        if (o instanceof CaseInsensitiveString)
+//            /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
+//            return s.equalsIgnoreCase(((CaseInsensitiveString) o).s);
+//
+//        /** One-way interoperability! */
+//        if (o instanceof String)
+//            return s.equalsIgnoreCase((String) o);
+//        return false;
+//    }
 
     /** Demonstration of the problem (Page 40) */
     public static void main(String[] args) {
-        CaseInsensitiveString cis = new CaseInsensitiveString("Polish");
+        CaseInsensitiveString cis = new CaseInsensitiveString("polish");
         String s = "polish";
 
         /** Returns true as expected. */
@@ -50,16 +50,15 @@ public final class CaseInsensitiveString {
         System.out.println(list.contains(s));
 
         /** Only works for newCaseInsensitiveString type. */
-//        CaseInsensitiveString newCaseInsensitiveString = new CaseInsensitiveString("Polish");
-//        System.out.println(cis.equals(newCaseInsensitiveString));
-//        System.out.println(newCaseInsensitiveString.equals(cis));
+        CaseInsensitiveString newCaseInsensitiveString = new CaseInsensitiveString("Polish");
+        System.out.println(cis.equals(newCaseInsensitiveString));
+        System.out.println(newCaseInsensitiveString.equals(cis));
     }
 
     /** Fixed equals method (Page 40) */
-//    @Override public boolean equals(Object o) {
-//    /** */
+    @Override public boolean equals(Object o) {
     /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
-//        return o instanceof CaseInsensitiveString &&
-//                ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
-//    }
+        return o instanceof CaseInsensitiveString &&
+                ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
+    }
 }
