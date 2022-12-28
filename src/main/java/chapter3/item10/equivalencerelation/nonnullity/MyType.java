@@ -15,6 +15,13 @@ public class MyType {
 //        return mt == this;
     }
 
+    /** Explicit null check isn't necessary. */
+//    @Override
+//    public boolean equals(Object o) {
+//        if(o == null)
+//            return false;
+//    }
+
     public static void main(String[] args) {
         System.out.println((new MyType()).equals(null));
 //        System.out.println((new MyType()).equals("Test"));
