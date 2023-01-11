@@ -69,4 +69,8 @@ public final class CaseInsensitiveString {
         return o instanceof CaseInsensitiveString &&
                 ((CaseInsensitiveString) o).CanonicalS.equalsIgnoreCase(CanonicalS);
     }
+
+    public String getS() {
+        return s;
+    }
 }
