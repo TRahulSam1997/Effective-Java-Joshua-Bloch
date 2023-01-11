@@ -13,9 +13,12 @@ import java.util.Objects;
  */
 public final class CaseInsensitiveString {
     private final String s;
+    private final String CanonicalS;
 
     public CaseInsensitiveString(String s) {
         this.s = Objects.requireNonNull(s);
+        /** Canonical string is used by equals method */
+        this.CanonicalS = convertToCanonicalForm(Objects.requireNonNull(s));
     }
 
     /** Broken - Overridden equals() method violates symmetry! */
@@ -31,6 +34,11 @@ public final class CaseInsensitiveString {
 //            return s.equalsIgnoreCase((String) o);
 //        return false;
 //    }
+
+    private String convertToCanonicalForm(String s) {
+        /** Convert the input string to standard case. */
+        return s.toLowerCase();
+    }
 
     /** Demonstration of the problem (Page 40) */
     public static void main(String[] args) {
@@ -59,6 +67,6 @@ public final class CaseInsensitiveString {
     @Override public boolean equals(Object o) {
     /** After casting the field s is accessed from the object of typeCaseInsensitiveString. */
         return o instanceof CaseInsensitiveString &&
-                ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
+                ((CaseInsensitiveString) o).CanonicalS.equalsIgnoreCase(CanonicalS);
     }
 }
