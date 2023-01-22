@@ -9,11 +9,11 @@ public class Parent {
 
 class Child extends Parent {
 //    @Override
-/** This method is not overriding the equals method in Parent class. */
-    public boolean equals(Child o) {
-        // implementation of equals method
-        return false;
-    }
+///** This method is not overriding the equals method in Parent class. */
+//    public boolean equals(Child o) {
+//        // implementation of equals method
+//        return false;
+//    }
 
     @Override
     /** Proper way. **/
