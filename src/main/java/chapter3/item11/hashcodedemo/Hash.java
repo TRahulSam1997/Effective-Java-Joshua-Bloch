@@ -9,7 +9,8 @@ class Hash {
         String a = "200";
         String b = "200";
 
-        /** If hashCode() wasn't overridden,
+        /**
+         * If hashCode() wasn't overridden in String.java,
          * then objects with logical equality would still
          * return different hash codes.
          */
