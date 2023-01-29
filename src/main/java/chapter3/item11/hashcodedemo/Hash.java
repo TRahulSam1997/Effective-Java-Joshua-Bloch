@@ -9,6 +9,10 @@ class Hash {
         String a = "200";
         String b = "200";
 
+        /** If hashCode() wasn't overridden,
+         * then objects with logical equality would still
+         * return different hash codes.
+         */
         if(a.equals(b)){
             System.out.println("Equal variables:");
             System.out.println("a -> " + a.hashCode() + "\n" + "b -> " + b.hashCode());
