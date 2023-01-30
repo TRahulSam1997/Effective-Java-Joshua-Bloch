@@ -61,7 +61,14 @@ public final class PhoneNumber {
 //    }
 
     public static void main(String[] args) {
+        /** Instances of PhoneNumber will be used keys. */
         Map<PhoneNumber, String> m = new HashMap<>();
+        /**
+         * If hashCode() is not overridden results in unequal hash codes,
+         * as two PhoneNumber instances are involved:
+         * one is used for insertion into the HashMap,
+         * and a second, equal instance is used for (attempted) retrieval.
+         */
         m.put(new PhoneNumber(707, 867, 5309), "Jenny");
         System.out.println(m.get(new PhoneNumber(707, 867, 5309)));
     }
