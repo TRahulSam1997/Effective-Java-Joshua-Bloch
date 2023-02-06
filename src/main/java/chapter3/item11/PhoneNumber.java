@@ -55,10 +55,16 @@ public final class PhoneNumber {
 //        return Objects.hash(lineNum, prefix, areaCode);
 //    }
 
-    /** hashCode method with lazily initialized cached hash code  (page 53). */
-//    private int hashCode; // Automatically initialized to 0
+    /**
+     * hashCode method with lazily initialized cached hash code  (page 53).
+     * Apt for immutable classes with expensive hash code calculation.
+     */
+
+    /** Automatically initialized to 0. */
+//    private int hashCode;
 //
 //    @Override public int hashCode() {
+//        /** Lazy initialization. */
 //        int result = hashCode;
 //        if (result == 0) {
 //            result = Short.hashCode(areaCode);
@@ -66,6 +72,7 @@ public final class PhoneNumber {
 //            result = 31 * result + Short.hashCode(lineNum);
 //            hashCode = result;
 //        }
+//        /** If cached directly returns result. */
 //        return result;
 //    }
 
