@@ -33,7 +33,7 @@ public final class PhoneNumber {
 
     /** Broken with no hashCode; works with any of the three below. */
 
-//    /** Typical hashCode method (Page 52). */
+    /** Typical hashCode method (Page 52). */
 //    @Override public int hashCode() {
 //        int result = Short.hashCode(areaCode);
 //        result = 31 * result + Short.hashCode(prefix);
@@ -41,12 +41,21 @@ public final class PhoneNumber {
 //        return result;
 //    }
 
-//    /** One-line hashCode method - mediocre performance  (page 53). */
+    /**
+     * One-line hashCode method - mediocre performance  (page 53).
+     * Recommended for use only in situations where performance is not critical.
+     */
 //    @Override public int hashCode() {
+//        /**
+//         * The hash() static method takes arbitrary number of objects
+//         * and returns a hash code for them.
+//         * Runs slowly as entails array creation to pass
+//         * a varying number of arguments - also involves autoboxing.
+//         * */
 //        return Objects.hash(lineNum, prefix, areaCode);
 //    }
 
-//    /** hashCode method with lazily initialized cached hash code  (page 53). */
+    /** hashCode method with lazily initialized cached hash code  (page 53). */
 //    private int hashCode; // Automatically initialized to 0
 //
 //    @Override public int hashCode() {
