@@ -57,6 +57,25 @@ public final class PhoneNumber {
         PhoneNumber jenny = new PhoneNumber(707, 867, 5309);
 //        System.out.println("Jenny's number: " + jenny);
 
-        System.out.println("Inherited toString for PhoneNumber from Object -> " + jenny.toString());
+        System.out.println("Inherited toString for PhoneNumber from Object -> " + jenny);
+    }
+}
+
+class MyComponent {
+    private PhoneNumber phoneNumber;
+
+    public MyComponent() {
+        phoneNumber = new PhoneNumber(707, 867, 5309);
+    }
+
+    public static void main(String[] args) {
+        MyComponent myComponent = new MyComponent();
+
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            /** Log the error message, including a string representation of the Person object. */
+            System.err.println("An error occurred with the phoneNumber -> " + myComponent.phoneNumber);
+        }
     }
 }
