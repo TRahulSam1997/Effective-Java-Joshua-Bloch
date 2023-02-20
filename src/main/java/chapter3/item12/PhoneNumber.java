@@ -22,7 +22,7 @@ public final class PhoneNumber {
     @Override public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof effectivejava.chapter3.item11.PhoneNumber))
+        if (!(o instanceof chapter3.item11.PhoneNumber))
             return false;
         PhoneNumber pn = (PhoneNumber)o;
         return pn.lineNum == lineNum && pn.prefix == prefix
@@ -55,6 +55,8 @@ public final class PhoneNumber {
 
     public static void main(String[] args) {
         PhoneNumber jenny = new PhoneNumber(707, 867, 5309);
-        System.out.println("Jenny's number: " + jenny);
+//        System.out.println("Jenny's number: " + jenny);
+
+        System.out.println("Inherited toString for PhoneNumber from Object -> " + jenny.toString());
     }
 }
