@@ -1,5 +1,8 @@
 package chapter3.item12;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 /**
  * Code taken from - https://github.com/jbloch/effective-java-3e-source-code/blob/master/src/effectivejava/chapter3/item12/PhoneNumber.java
  * Adding a toString method to PhoneNumber (page 52)
@@ -48,10 +51,10 @@ public final class PhoneNumber {
      * For example, if the value of the line number is 123, the last
      * four characters of the string representation will be "0123".
      */
-//    @Override public String toString() {
-//        return String.format("%03d-%03d-%04d",
-//                areaCode, prefix, lineNum);
-//    }
+    @Override public String toString() {
+        return String.format("%03d-%03d-%04d",
+                areaCode, prefix, lineNum);
+    }
 
     public static void main(String[] args) {
         PhoneNumber jenny = new PhoneNumber(707, 867, 5309);
@@ -77,5 +80,15 @@ class MyComponent {
             /** Log the error message, including a string representation of the Person object. */
             System.err.println("An error occurred with the phoneNumber -> " + myComponent.phoneNumber);
         }
+    }
+}
+
+class CollectionsExample {
+
+    public static void main(String[] args) {
+        HashMap<String, PhoneNumber> collectionsExampleHashSet = new HashMap<>();
+        collectionsExampleHashSet.put("collectionsExample", new PhoneNumber(707, 867, 5309));
+
+        System.out.println(collectionsExampleHashSet);
     }
 }
