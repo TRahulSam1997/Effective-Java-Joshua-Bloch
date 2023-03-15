@@ -87,7 +87,7 @@ class CollectionsExample {
 
     public static void main(String[] args) {
         HashMap<String, PhoneNumber> collectionsExampleHashSet = new HashMap<>();
-        collectionsExampleHashSet.put("collectionsExample", new PhoneNumber(707, 867, 5309));
+        collectionsExampleHashSet.put("Žižek", new PhoneNumber(707, 867, 5309));
 
         System.out.println(collectionsExampleHashSet);
     }
