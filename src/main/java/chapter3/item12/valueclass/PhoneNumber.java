@@ -48,4 +48,36 @@ public final class PhoneNumber {
             throw new IllegalArgumentException("Invalid phone number format: " + phoneNumberStr);
         }
     }
+
+    public String getAreaCode() {
+        return String.valueOf(areaCode);
+    }
+
+    public String getPrefix() {
+        return String.valueOf(prefix);
+    }
+
+    public String getLineNumber() {
+        return String.valueOf(lineNumber);
+    }
+}
+
+class Client {
+    public static void main(String[] args) {
+        // Create a PhoneNumber object
+        PhoneNumber phoneNumber = new PhoneNumber(123, 456, 7890);
+
+        // Use the PhoneNumber object
+        System.out.println("Area code: " + phoneNumber.getAreaCode());
+        System.out.println("Prefix: " + phoneNumber.getPrefix());
+        System.out.println("Line number: " + phoneNumber.getLineNumber());
+
+        // Convert the PhoneNumber object to a string representation
+        String phoneNumberString = phoneNumber.toString();
+        System.out.println("Phone number string: " + phoneNumberString);
+
+        // Convert the string representation back to a PhoneNumber object
+        PhoneNumber parsedPhoneNumber = PhoneNumber.fromString(phoneNumberString);
+        System.out.println("Parsed phone number: " + parsedPhoneNumber);
+    }
 }
