@@ -77,11 +77,11 @@ class Client {
         System.out.println("Prefix: " + phoneNumber.getPrefix());
         System.out.println("Line number: " + phoneNumber.getLineNumber());
 
-         /** Convert the PhoneNumber object to a string representation. */
+        /** Convert the PhoneNumber object to a string representation. */
         String phoneNumberString = phoneNumber.toString();
         System.out.println("Phone number string: " + phoneNumberString);
 
-         /** Convert the string representation back to a PhoneNumber object. */
+        /** Convert the string representation back to a PhoneNumber object. */
         PhoneNumber parsedPhoneNumber = PhoneNumber.fromString(phoneNumberString);
         System.out.println("Parsed phone number: " + parsedPhoneNumber);
     }
