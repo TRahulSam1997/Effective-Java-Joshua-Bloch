@@ -25,6 +25,11 @@ public final class PhoneNumber {
     }
 
     /**
+     * Static factory allows easily translating between
+     * object and string representation.
+     */
+
+    /**
      * Parses a phone number from the specified string.
      * The string must be in the format (AAA) PPP-LLLL, where AAA is the area code,
      * PPP is the prefix, and LLLL is the line number.
@@ -35,7 +40,7 @@ public final class PhoneNumber {
      * @throws IllegalArgumentException if the string is not in the correct format
      */
     public static PhoneNumber fromString(String phoneNumberStr) {
-        // Regular expression pattern for the phone number format
+        /** Regular expression pattern for the phone number format. */
         Pattern pattern = Pattern.compile("\\((\\d{3})\\) (\\d{3})-(\\d{4})");
         Matcher matcher = pattern.matcher(phoneNumberStr);
 
@@ -64,19 +69,19 @@ public final class PhoneNumber {
 
 class Client {
     public static void main(String[] args) {
-        // Create a PhoneNumber object
+        /** Create a PhoneNumber object. */
         PhoneNumber phoneNumber = new PhoneNumber(123, 456, 7890);
 
-        // Use the PhoneNumber object
+        /** Use the PhoneNumber object. */
         System.out.println("Area code: " + phoneNumber.getAreaCode());
         System.out.println("Prefix: " + phoneNumber.getPrefix());
         System.out.println("Line number: " + phoneNumber.getLineNumber());
 
-        // Convert the PhoneNumber object to a string representation
+         /** Convert the PhoneNumber object to a string representation. */
         String phoneNumberString = phoneNumber.toString();
         System.out.println("Phone number string: " + phoneNumberString);
 
-        // Convert the string representation back to a PhoneNumber object
+         /** Convert the string representation back to a PhoneNumber object. */
         PhoneNumber parsedPhoneNumber = PhoneNumber.fromString(phoneNumberString);
         System.out.println("Parsed phone number: " + parsedPhoneNumber);
     }
