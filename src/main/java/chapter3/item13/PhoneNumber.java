@@ -55,12 +55,16 @@ public final class PhoneNumber implements Cloneable {
                 areaCode, prefix, lineNum);
     }
 
-    // Clone method for class with no references to mutable state (Page 59)
+    /** Clone method for class with no references to mutable state (Page 59) */
     @Override public PhoneNumber clone() {
         try {
+            /**
+              * Object's clone() is used.
+              * Casting ensured type PhoneNumber instead of Object is returned.
+              */
             return (PhoneNumber) super.clone();
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError();  // Can't happen
+            throw new AssertionError();
         }
     }
 
