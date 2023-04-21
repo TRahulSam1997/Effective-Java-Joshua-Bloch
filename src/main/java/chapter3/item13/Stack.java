@@ -54,9 +54,10 @@ public class Stack implements Cloneable {
         for (String arg : args)
             stack.push(arg);
         Stack copy = stack.clone();
+        System.out.printf("stack -> " + stack + "\n");
         while (!stack.isEmpty())
             System.out.print(stack.pop() + " ");
-        System.out.println();
+        System.out.printf("\n\ncopy -> " + copy + "\n");
         while (!copy.isEmpty())
             System.out.print(copy.pop() + " ");
     }
