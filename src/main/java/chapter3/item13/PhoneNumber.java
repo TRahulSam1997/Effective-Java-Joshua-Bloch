@@ -64,6 +64,7 @@ public final class PhoneNumber implements Cloneable {
               */
             return (PhoneNumber) super.clone();
         } catch (CloneNotSupportedException e) {
+            /** This catch block is considered unnecessary boilerplate. */
             throw new AssertionError();
         }
     }
