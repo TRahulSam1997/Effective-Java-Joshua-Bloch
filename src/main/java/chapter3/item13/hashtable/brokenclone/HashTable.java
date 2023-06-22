@@ -42,33 +42,15 @@ public class HashTable implements Cloneable {
         return null;
     }
 
-    public HashTable clone() {
+    /** Broken clone method - results in shared mutable state! */
+    @Override public HashTable clone() {
         try {
-            HashTable clone = (HashTable) super.clone();
-            clone.buckets = buckets.clone(); // Shallow copy of the array
-
-            // Deep copy of the linked lists
-            for (int i = 0; i < buckets.length; i++) {
-                if (buckets[i] != null) {
-                    clone.buckets[i] = cloneLinkedList(buckets[i]);
-                }
-            }
-
-            return clone;
+            HashTable result = (HashTable) super.clone();
+            result.buckets = buckets.clone();
+            return result;
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
+            throw new AssertionError();
         }
-    }
-
-    private Entry cloneLinkedList(Entry entry) {
-        Entry newEntry = new Entry(entry.key, entry.value, null);
-        Entry current = newEntry;
-        while (entry.next != null) {
-            entry = entry.next;
-            current.next = new Entry(entry.key, entry.value, null);
-            current = current.next;
-        }
-        return newEntry;
     }
 
     private int getIndex(Object key) {
