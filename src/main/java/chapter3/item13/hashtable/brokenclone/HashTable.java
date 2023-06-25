@@ -46,6 +46,7 @@ public class HashTable implements Cloneable {
     @Override public HashTable clone() {
         try {
             HashTable result = (HashTable) super.clone();
+            /* Elements in the buckets array are not copied. */
             result.buckets = buckets.clone();
             return result;
         } catch (CloneNotSupportedException e) {
@@ -55,5 +56,25 @@ public class HashTable implements Cloneable {
 
     private int getIndex(Object key) {
         return key.hashCode() % buckets.length;
+    }
+
+    public static void main(String[] args) {
+        HashTable original = new HashTable(10);
+        original.put("key1", "value1");
+
+        /* Clone the original HashTable instance. */
+        HashTable clone = original.clone();
+
+        /* Modify the value in the cloned object. */
+        clone.put("key1", "updatedValue");
+
+        /* Access the value from the original object. */
+        String originalValue = (String) original.get("key1");
+
+        /* Access the value from the cloned object. */
+        String clonedValue = (String) clone.get("key1");
+
+        System.out.println("Original value -> " + originalValue);
+        System.out.println("Cloned value -> " + clonedValue); // Should be "updatedValue"
     }
 }
