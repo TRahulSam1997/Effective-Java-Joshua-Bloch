@@ -2,36 +2,28 @@ package chapter3.item13.hashtable;
 
 public class HashTable implements Cloneable {
     private Entry[] buckets;
+
     private static class Entry {
         final Object key;
-        Object value;
+        StringBuilder value;
         Entry next;
-        Entry(Object key, Object value, Entry next) {
+
+        Entry(Object key, StringBuilder value, Entry next) {
             this.key = key;
             this.value = value;
             this.next = next;
         }
 
-        /** Recursively copy the linked list headed by this Entry. */
         Entry deepCopy() {
-            return new Entry(key, value,
-                    next == null ? null : next.deepCopy());
+            return new Entry(key, new StringBuilder(value.toString()), next == null ? null : next.deepCopy());
         }
-
-//        /** Iteratively copy the linked list headed by this Entry. */
-//        Entry deepCopy() {
-//            Entry result = new Entry(key, value, next);
-//            for (Entry p = result; p.next != null; p = p.next)
-//                p.next = new Entry(p.next.key, p.next.value, p.next.next);
-//            return result;
-//        }
     }
 
     public HashTable(int size) {
         buckets = new Entry[size];
     }
 
-    public void put(Object key, Object value) {
+    public void put(Object key, StringBuilder value) {
         int index = getIndex(key);
         Entry entry = buckets[index];
         if (entry == null) {
@@ -44,7 +36,7 @@ public class HashTable implements Cloneable {
         }
     }
 
-    public Object get(Object key) {
+    public StringBuilder get(Object key) {
         int index = getIndex(key);
         Entry entry = buckets[index];
         while (entry != null) {
@@ -56,20 +48,51 @@ public class HashTable implements Cloneable {
         return null;
     }
 
-    @Override public HashTable clone() {
+    @Override
+    public HashTable clone() {
         try {
             HashTable result = (HashTable) super.clone();
             result.buckets = new Entry[buckets.length];
-            for (int i = 0; i < buckets.length; i++)
-                if (buckets[i] != null)
-                    result.buckets[i] = buckets[i].deepCopy();
+            for (int i = 0; i < buckets.length; i++) {
+                if (buckets[i] != null) {
+                    result.buckets[i] = deepCopyLinkedList(buckets[i]);
+                }
+            }
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
     }
 
+    private Entry deepCopyLinkedList(Entry entry) {
+        if (entry == null) {
+            return null;
+        }
+        Entry newEntry = new Entry(entry.key, new StringBuilder(entry.value.toString()), deepCopyLinkedList(entry.next));
+        return newEntry;
+    }
+
     private int getIndex(Object key) {
         return key.hashCode() % buckets.length;
+    }
+
+    public static void main(String[] args) {
+        HashTable original = new HashTable(10);
+        original.put("key1", new StringBuilder("value1"));
+
+        /* Clone the original HashTable instance. */
+        HashTable clone = original.clone();
+
+        /* Modify the value in the cloned object. */
+        clone.get("key1").append("Updated");
+
+        /* Access the value from the original object. */
+        StringBuilder originalValue = original.get("key1");
+
+        /* Access the value from the cloned object. */
+        StringBuilder clonedValue = clone.get("key1");
+
+        System.out.println("Original value -> " + originalValue);
+        System.out.println("Cloned value -> " + clonedValue); // Should be "value1Updated"
     }
 }

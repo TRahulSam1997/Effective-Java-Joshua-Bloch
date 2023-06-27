@@ -60,7 +60,7 @@ public class HashTable implements Cloneable {
 
     public static void main(String[] args) {
         HashTable original = new HashTable(10);
-        original.put("key1", "value1");
+        original.put("key1", new StringBuilder("value1"));
 
         /* Clone the original HashTable instance. */
         HashTable clone = original.clone();
@@ -69,10 +69,12 @@ public class HashTable implements Cloneable {
         clone.put("key1", "updatedValue");
 
         /* Access the value from the original object. */
-        String originalValue = (String) original.get("key1");
+        StringBuilder originalValue = (StringBuilder) original.get("key1");
 
         /* Access the value from the cloned object. */
-        String clonedValue = (String) clone.get("key1");
+        StringBuilder clonedValue = (StringBuilder) clone.get("key1");
+
+        System.out.println("Broken HashTable... ");
 
         System.out.println("Original value -> " + originalValue);
         System.out.println("Cloned value -> " + clonedValue); // Should be "updatedValue"
