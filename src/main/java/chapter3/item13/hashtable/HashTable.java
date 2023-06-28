@@ -1,44 +1,63 @@
 package chapter3.item13.hashtable;
 
-public class HashTable implements Cloneable {
-    private Entry[] buckets;
+public class HashTable<K, V> implements Cloneable {
+    private static final int DEFAULT_CAPACITY = 10;
+    private Entry<K, V>[] buckets;
+    private int size;
 
-    private static class Entry {
-        final Object key;
-        StringBuilder value;
-        Entry next;
+    private static class Entry<K, V> {
+        final K key;
+        V value;
+        Entry<K, V> next;
 
-        Entry(Object key, StringBuilder value, Entry next) {
+        Entry(K key, V value, Entry<K, V> next) {
             this.key = key;
             this.value = value;
             this.next = next;
         }
 
+        /** Recursively copy the linked list headed by this Entry. */
         Entry deepCopy() {
-            return new Entry(key, new StringBuilder(value.toString()), next == null ? null : next.deepCopy());
+            return new Entry(key, value,
+                    next == null ? null : next.deepCopy());
         }
+
+        /** Iteratively copy the linked list headed by this Entry. */
+//        Entry<K, V> deepCopy() {
+//            Entry<K, V> result = new Entry<>(key, value, next);
+//            for (Entry<K, V> p = result; p.next != null; p = p.next)
+//                p.next = new Entry<K, V>(p.next.key, p.next.value, p.next.next);
+//            return result;
+//        }
     }
 
-    public HashTable(int size) {
-        buckets = new Entry[size];
+    public HashTable() {
+        this(DEFAULT_CAPACITY);
     }
 
-    public void put(Object key, StringBuilder value) {
+    public HashTable(int capacity) {
+        buckets = new Entry[capacity];
+        size = 0;
+    }
+
+    public void put(K key, V value) {
         int index = getIndex(key);
-        Entry entry = buckets[index];
-        if (entry == null) {
-            buckets[index] = new Entry(key, value, null);
-        } else {
-            while (entry.next != null) {
-                entry = entry.next;
+        Entry<K, V> entry = buckets[index];
+        while (entry != null) {
+            if (entry.key.equals(key)) {
+                entry.value = value;
+                return;
             }
-            entry.next = new Entry(key, value, null);
+            entry = entry.next;
         }
+        Entry<K, V> newEntry = new Entry<>(key, value, buckets[index]);
+        buckets[index] = newEntry;
+        size++;
     }
 
-    public StringBuilder get(Object key) {
+    public V get(K key) {
         int index = getIndex(key);
-        Entry entry = buckets[index];
+        Entry<K, V> entry = buckets[index];
         while (entry != null) {
             if (entry.key.equals(key)) {
                 return entry.value;
@@ -48,51 +67,42 @@ public class HashTable implements Cloneable {
         return null;
     }
 
+    private int getIndex(K key) {
+        int hashCode = key.hashCode();
+        return Math.abs(hashCode) % buckets.length;
+    }
+
     @Override
     public HashTable clone() {
         try {
             HashTable result = (HashTable) super.clone();
             result.buckets = new Entry[buckets.length];
-            for (int i = 0; i < buckets.length; i++) {
-                if (buckets[i] != null) {
-                    result.buckets[i] = deepCopyLinkedList(buckets[i]);
-                }
-            }
+            for (int i = 0; i < buckets.length; i++)
+                if (buckets[i] != null)
+                    result.buckets[i] = buckets[i].deepCopy();
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
     }
 
-    private Entry deepCopyLinkedList(Entry entry) {
-        if (entry == null) {
-            return null;
-        }
-        Entry newEntry = new Entry(entry.key, new StringBuilder(entry.value.toString()), deepCopyLinkedList(entry.next));
-        return newEntry;
-    }
-
-    private int getIndex(Object key) {
-        return key.hashCode() % buckets.length;
-    }
-
     public static void main(String[] args) {
-        HashTable original = new HashTable(10);
-        original.put("key1", new StringBuilder("value1"));
+        HashTable<String, Integer> originalTable = new HashTable<>();
+        originalTable.put("one", 1);
+        originalTable.put("two", 2);
+        originalTable.put("three", 3);
 
-        /* Clone the original HashTable instance. */
-        HashTable clone = original.clone();
+        /* Create a clone of the original HashTable. */
+        HashTable clonedTable = originalTable.clone();
 
-        /* Modify the value in the cloned object. */
-        clone.get("key1").append("Updated");
+        /* Modify the value in the cloned table. */
+        clonedTable.put("one", 10);
 
-        /* Access the value from the original object. */
-        StringBuilder originalValue = original.get("key1");
+        /* Access the values from the original and cloned tables. */
+        Integer originalValue = originalTable.get("one");
+        Integer clonedValue = (Integer) clonedTable.get("one");
 
-        /* Access the value from the cloned object. */
-        StringBuilder clonedValue = clone.get("key1");
-
-        System.out.println("Original value -> " + originalValue);
-        System.out.println("Cloned value -> " + clonedValue); // Should be "value1Updated"
+        System.out.println("Original value -> " + originalValue); // Output: 1
+        System.out.println("Cloned value-> " + clonedValue);     // Output: 10
     }
 }
