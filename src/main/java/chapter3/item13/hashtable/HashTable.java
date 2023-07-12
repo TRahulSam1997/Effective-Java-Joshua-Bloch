@@ -5,9 +5,15 @@ public class HashTable<K, V> implements Cloneable {
     private Entry<K, V>[] buckets;
     private int size;
 
-    private static class Entry<K, V> {
+    protected static class Entry<K, V> {
         final K key;
+
         V value;
+
+        // Ignore these.
+        public K testKey;
+        public V testValue;
+        public Entry<K, V> testNext;
         Entry<K, V> next;
 
         Entry(K key, V value, Entry<K, V> next) {
@@ -40,7 +46,9 @@ public class HashTable<K, V> implements Cloneable {
         size = 0;
     }
 
-    public void put(K key, V value) {
+    public
+//    private
+    void put(K key, V value) {
         int index = getIndex(key);
         Entry<K, V> entry = buckets[index];
         while (entry != null) {
