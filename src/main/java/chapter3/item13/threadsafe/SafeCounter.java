@@ -21,7 +21,7 @@ public class SafeCounter implements Cloneable {
         }
     }
 
-//    // Thread safe
+    // Thread safe
 //    @Override
 //    public synchronized SafeCounter clone() {
 //        try {

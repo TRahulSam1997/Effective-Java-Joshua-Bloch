@@ -65,7 +65,7 @@ public class HashTable<K, V> implements Cloneable {
             HashTable<K, V> clonedTable = (HashTable<K, V>) super.clone();
             clonedTable.buckets = new Entry[buckets.length];
             clonedTable.size = 0;
-            /* Deep copy taking place without a field-by-field copy of the object. */
+            /* Deep copy taking place with a field-by-field copy of the object. */
             for (Entry entry : buckets) {
                 while (entry != null) {
                     clonedTable.put((K) entry.key, (V) entry.value);

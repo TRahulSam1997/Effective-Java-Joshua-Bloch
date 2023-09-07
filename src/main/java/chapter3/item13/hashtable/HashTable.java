@@ -23,18 +23,18 @@ public class HashTable<K, V> implements Cloneable {
         }
 
         /** Recursively copy the linked list headed by this Entry. */
-        Entry deepCopy() {
-            return new Entry(key, value,
-                    next == null ? null : next.deepCopy());
-        }
+//        Entry deepCopy() {
+//            return new Entry(key, value,
+//                    next == null ? null : next.deepCopy());
+//        }
 
         /** Iteratively copy the linked list headed by this Entry. */
-//        Entry<K, V> deepCopy() {
-//            Entry<K, V> result = new Entry<>(key, value, next);
-//            for (Entry<K, V> p = result; p.next != null; p = p.next)
-//                p.next = new Entry<K, V>(p.next.key, p.next.value, p.next.next);
-//            return result;
-//        }
+        Entry<K, V> deepCopy() {
+            Entry<K, V> result = new Entry<>(key, value, next);
+            for (Entry<K, V> p = result; p.next != null; p = p.next)
+                p.next = new Entry<K, V>(p.next.key, p.next.value, p.next.next);
+            return result;
+        }
     }
 
     public HashTable() {
