@@ -38,5 +38,7 @@ public final class CaseInsensitiveString
         for (String arg : args)
             s.add(new CaseInsensitiveString(arg));
         System.out.println(s);
+
+        System.out.println("Hello World");
     }
 }
