@@ -19,19 +19,19 @@ record ComparingClass(String name, int age) implements Comparable<ComparingClass
 public class ContractDemo {
     public static void main(String[] args) {
         // Create objects of ComparingClass
-        ComparingClass alice = new ComparingClass("Alice", 30);
-        ComparingClass bob = new ComparingClass("Bob", 25);
-        ComparingClass charlie = new ComparingClass("Charlie", 30);
+        ComparingClass Kant = new ComparingClass("Kant", 79);
+        ComparingClass Wittgenstein = new ComparingClass("Wittgenstein", 62);
+        ComparingClass Hegel = new ComparingClass("Hegel", 79); // He really died at 61, lol.
 
         // Compare objects
-        System.out.println("Comparing Alice and Bob -> " + alice.compareTo(bob));  // Alice older than Bob
-        System.out.println("Comparing Bob and Alice -> " + bob.compareTo(alice));  // Bob is younger than Alice
-        System.out.println("Comparing Alice and Charlie -> " + alice.compareTo(charlie));  // Alice and Charlie are of same age
+        System.out.println("Comparing Kant and Wittgenstein -> " + Kant.compareTo(Wittgenstein));  // Kant older than Wittgenstein
+        System.out.println("Comparing Wittgenstein and Kant -> " + Wittgenstein.compareTo(Kant));  // Wittgenstein is younger than Kant
+        System.out.println("Comparing Kant and Hegel -> " + Kant.compareTo(Hegel));  // Kant and Hegel are of same age
 
         try {
             // Manually triggering ClassCastException by comparing with a null object
             ComparingClass nullPerson = null;
-            alice.compareTo(nullPerson);
+            Kant.compareTo(nullPerson);
         } catch (ClassCastException e) {
             System.out.println("Caught exception: " + e.getMessage());
         }
