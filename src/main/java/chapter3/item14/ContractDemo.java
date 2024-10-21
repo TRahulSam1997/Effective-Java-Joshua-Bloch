@@ -2,12 +2,12 @@ package chapter3.item14;
 
 // Implementing Comparable to compare objects based on the 'age' field.
 // Java record used to remove boilerplate code.
-record ComparingClass(String name, int age) implements Comparable<ComparingClass> {
-    // compareTo method compares the 'age' of the current object with another ComparingClass object.
+record Philosopher(String name, int age) implements Comparable<Philosopher> {
+    // compareTo method compares the 'age' of the current object with another Philosopher object.
     @Override
-    public int compareTo(ComparingClass otherObject) {
+    public int compareTo(Philosopher otherObject) {
         if (otherObject == null) {
-            throw new ClassCastException("Cannot compare ComparingClass to " + otherObject + ".");
+            throw new ClassCastException("Cannot compare Philosopher to " + otherObject + ".");
         }
 
         // Compare by age
@@ -18,10 +18,10 @@ record ComparingClass(String name, int age) implements Comparable<ComparingClass
 
 public class ContractDemo {
     public static void main(String[] args) {
-        // Create objects of ComparingClass
-        ComparingClass Kant = new ComparingClass("Kant", 79);
-        ComparingClass Wittgenstein = new ComparingClass("Wittgenstein", 62);
-        ComparingClass Hegel = new ComparingClass("Hegel", 79); // He really died at 61, lol.
+        // Create objects of Philosopher
+        Philosopher Kant = new Philosopher("Kant", 79);
+        Philosopher Wittgenstein = new Philosopher("Wittgenstein", 62);
+        Philosopher Hegel = new Philosopher("Hegel", 79); // He really died at 61, lol.
 
         // Compare objects
         System.out.println("Comparing Kant and Wittgenstein -> " + Kant.compareTo(Wittgenstein));  // Kant older than Wittgenstein
@@ -30,7 +30,7 @@ public class ContractDemo {
 
         try {
             // Manually triggering ClassCastException by comparing with a null object
-            ComparingClass nullPerson = null;
+            Philosopher nullPerson = null;
             Kant.compareTo(nullPerson);
         } catch (ClassCastException e) {
             System.out.println("Caught exception: " + e.getMessage());
