@@ -46,7 +46,7 @@ class Demo {
         System.out.println("Comparing Kant and Wittgenstein -> " + Kant.compareTo(Wittgenstein));  // Comparing ages
 
         // Comparing Philosophy objects
-        System.out.println("Comparing Kantian and Hegelian Philosophy -> " + KantianPhilosophy.compareTo(HegelianPhilosophy)); // Compare age and style
+        System.out.println("Comparing Kantian and Hegelian Philosophy -> " + KantianPhilosophy.compareTo(HegelianPhilosophy)); // Compare age and type of philosophy
         System.out.println("Comparing Kantian and Wittgensteinian Philosophy -> " + KantianPhilosophy.compareTo(WittgensteinianPhilosophy));
 
         // Accessing the contained Philosopher
