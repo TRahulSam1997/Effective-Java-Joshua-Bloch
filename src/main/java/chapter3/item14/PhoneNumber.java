@@ -69,11 +69,16 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 //    }
 
     // Comparable with comparator construction methods (page 70)
+    // Static and final means COMPARATOR is shared across all instances of PhoneNumber (Singleton pattern)
     private static final Comparator<PhoneNumber> COMPARATOR =
+            // comparingInt() is a static method in the Comparator interface
+            // Lambda function taken as argument that extracts int field from object
             comparingInt((PhoneNumber pn) -> pn.areaCode)
+                    // thenComparingInt() is used to add a tie-breaking criterion
                     .thenComparingInt(pn -> pn.prefix)
                     .thenComparingInt(pn -> pn.lineNum);
 
+    // Comparison logic is delegated to COMPARATOR
     public int compareTo(PhoneNumber pn) {
         return COMPARATOR.compare(this, pn);
     }

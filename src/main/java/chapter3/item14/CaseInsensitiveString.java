@@ -30,6 +30,7 @@ public final class CaseInsensitiveString
 
     // Using an existing comparator to make a class comparable
     public int compareTo(CaseInsensitiveString cis) {
+        // Predefined comparator that compares two strings lexicographically, ignoring case differences.
         return String.CASE_INSENSITIVE_ORDER.compare(s, cis.s);
     }
 
@@ -37,8 +38,7 @@ public final class CaseInsensitiveString
         Set<CaseInsensitiveString> s = new TreeSet<>();
         for (String arg : args)
             s.add(new CaseInsensitiveString(arg));
+        // args = {"apple", "Banana", "APPLE", "banana", "Cherry"}
         System.out.println(s);
-
-        System.out.println("Hello World");
     }
 }
