@@ -78,6 +78,17 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
                     .thenComparingInt(pn -> pn.prefix)
                     .thenComparingInt(pn -> pn.lineNum);
 
+    // Comparator based on static compare method
+    static Comparator<Object> hashCodeOrderWithStatic = new Comparator<>() {
+        public int compare(Object o1, Object o2) {
+            return Integer.compare(o1.hashCode(), o2.hashCode());
+        }
+    };
+
+    // Comparator based on Comparator construction method
+    static Comparator<Object> hashCodeOrderWithComparator =
+            Comparator.comparingInt(o -> o.hashCode());
+
     // Comparison logic is delegated to COMPARATOR
     public int compareTo(PhoneNumber pn) {
         return COMPARATOR.compare(this, pn);
